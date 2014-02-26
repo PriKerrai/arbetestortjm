@@ -1,26 +1,13 @@
 package com.coma.comaexjobb.client;
 
+import java.awt.ScrollPane;
+
 import com.coma.comaexjobb.shared.FieldVerifier;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.event.dom.client.KeyUpEvent;
-import com.google.gwt.event.dom.client.KeyUpHandler;
+import com.google.gwt.event.dom.client.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.DialogBox;
-import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.Panel;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.SplitLayoutPanel;
-import com.google.gwt.user.client.ui.StackPanel;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.*;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -48,35 +35,17 @@ public class ComaExjobb implements EntryPoint {
 		final TextBox nameField = new TextBox();
 		nameField.setText("GWT User");
 		final Label errorLabel = new Label();
-		Button testButton = new Button("TESTTES");
-		RootPanel.get("oryxDiv").add(testButton);
-		RootPanel.get("rightDivBot").add(panel("title", "preview", 1));
-		final Button importButton = new Button("Import");
-		final Button exportButton = new Button("Export");
-
-		importButton.getElement().setClassName("utilityButton");
-		exportButton.getElement().setClassName("utilityButton");
 		
-		RootPanel.get("topDiv").add(importButton);
-		RootPanel.get("topDiv").add(exportButton);
 		
-		final Button diagramButton1 = new Button("diagramButton1");
-		final Button diagramButton2 = new Button("diagramButton2");
-		final Button diagramButton3 = new Button("diagramButton3");
-		final Button diagramButton4 = new Button("diagramButton4");
-		final Button diagramButton5 = new Button("diagramButton5");
+		RootPanel.get("rightDivBot").add(votingPanel("title", "preview", 1));
 		
-		diagramButton1.getElement().setClassName("diagramButton");
-		diagramButton2.getElement().setClassName("diagramButton");
-		diagramButton3.getElement().setClassName("diagramButton");
-		diagramButton4.getElement().setClassName("diagramButton");
-		diagramButton5.getElement().setClassName("diagramButton");
+		RootPanel.get("topDiv").add(topMenuButtons());
+		RootPanel.get("rightDivTop").add(diagramButtons());
 		
-		RootPanel.get("rightDivTop").add(diagramButton1);
-		RootPanel.get("rightDivTop").add(diagramButton2);
-		RootPanel.get("rightDivTop").add(diagramButton3);
-		RootPanel.get("rightDivTop").add(diagramButton4);
-		RootPanel.get("rightDivTop").add(diagramButton5);
+		Frame testOryxFrame = new Frame("http://cpi2.xepos.be:9999/oryx/oryx.xhtml");
+		testOryxFrame.setHeight("100%");
+		testOryxFrame.setWidth("99%");
+		RootPanel.get("oryxDiv").add(testOryxFrame);
 
 		// We can add style names to widgets
 		sendButton.addStyleName("sendButton");
@@ -186,8 +155,52 @@ public class ComaExjobb implements EntryPoint {
 		nameField.addKeyUpHandler(handler);
 	}
 	
-	private Panel panel(String title, String preview, int id)
+	private Panel topMenuButtons()
 	{
+		HorizontalPanel panel = new HorizontalPanel();
+	
+		final Button importButton = new Button("Import");
+		final Button exportButton = new Button("Export");
+
+		importButton.getElement().setClassName("utilityButton");
+		exportButton.getElement().setClassName("utilityButton");
+		
+		panel.add(importButton);
+		panel.add(exportButton);
+		return panel;	
+	}
+	
+	//Buttons for diagrams in rightDiv
+	private Panel diagramButtons()
+	{
+		final Button diagramButton1 = new Button("diagramButton1");
+		final Button diagramButton2 = new Button("diagramButton2");
+		final Button diagramButton3 = new Button("diagramButton3");
+		final Button diagramButton4 = new Button("diagramButton4");
+		final Button diagramButton5 = new Button("diagramButton5");
+		
+		diagramButton1.getElement().setClassName("diagramButton");
+		diagramButton2.getElement().setClassName("diagramButton");
+		diagramButton3.getElement().setClassName("diagramButton");
+		diagramButton4.getElement().setClassName("diagramButton");
+		diagramButton5.getElement().setClassName("diagramButton");
+		
+		FlowPanel flowPanel = new FlowPanel();
+		flowPanel.add(diagramButton1);
+		flowPanel.add(diagramButton2);
+		flowPanel.add(diagramButton3);
+		flowPanel.add(diagramButton4);
+		flowPanel.add(diagramButton5);
+		return flowPanel;
+	}
+	
+	private Panel votingPanel(String title, String preview, int id)
+	{
+		ScrollPanel cp = new ScrollPanel();
+		cp.setHeight("100%");
+		
+		VerticalPanel mainPanel = new VerticalPanel();
+		for(int i = 0; i<10; i++){
 		HorizontalPanel panel = new HorizontalPanel();
 		VerticalPanel vPanel = new VerticalPanel();
 		HorizontalPanel hPanel = new HorizontalPanel();
@@ -201,9 +214,13 @@ public class ComaExjobb implements EntryPoint {
 		hPanel.add(new Button("3"));
 		hPanel.add(new Button("4"));
 		hPanel.add(new Button("5"));
-		return panel;
-			
-
+		
+		mainPanel.add(panel);
+		}
+		cp.add(mainPanel);
+		
+		
+		return cp;
 	}
 	
 }
