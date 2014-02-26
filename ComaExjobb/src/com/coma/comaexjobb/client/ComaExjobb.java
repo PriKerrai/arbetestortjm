@@ -44,6 +44,33 @@ public class ComaExjobb implements EntryPoint {
 		nameField.setText("GWT User");
 		final Label errorLabel = new Label();
 
+		final Button importButton = new Button("Import");
+		final Button exportButton = new Button("Export");
+
+		importButton.getElement().setClassName("utilityButton");
+		exportButton.getElement().setClassName("utilityButton");
+		
+		RootPanel.get("topDiv").add(importButton);
+		RootPanel.get("topDiv").add(exportButton);
+		
+		final Button diagramButton1 = new Button("diagramButton1");
+		final Button diagramButton2 = new Button("diagramButton2");
+		final Button diagramButton3 = new Button("diagramButton3");
+		final Button diagramButton4 = new Button("diagramButton4");
+		final Button diagramButton5 = new Button("diagramButton5");
+		
+		diagramButton1.getElement().setClassName("diagramButton");
+		diagramButton2.getElement().setClassName("diagramButton");
+		diagramButton3.getElement().setClassName("diagramButton");
+		diagramButton4.getElement().setClassName("diagramButton");
+		diagramButton5.getElement().setClassName("diagramButton");
+		
+		RootPanel.get("rightDivTop").add(diagramButton1);
+		RootPanel.get("rightDivTop").add(diagramButton2);
+		RootPanel.get("rightDivTop").add(diagramButton3);
+		RootPanel.get("rightDivTop").add(diagramButton4);
+		RootPanel.get("rightDivTop").add(diagramButton5);
+
 		// We can add style names to widgets
 		sendButton.addStyleName("sendButton");
 

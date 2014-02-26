@@ -1,0 +1,2 @@
+serviceClass: com.coma.comaexjobb.client.GreetingService
+path: A28DE762A49565C5A5155C574E8EF5AF.gwt.rpc
