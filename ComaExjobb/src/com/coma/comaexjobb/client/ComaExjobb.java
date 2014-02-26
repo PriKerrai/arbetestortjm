@@ -1,6 +1,8 @@
 package com.coma.comaexjobb.client;
 
 import java.awt.ScrollPane;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import com.coma.comaexjobb.shared.FieldVerifier;
 import com.google.gwt.core.client.EntryPoint;
@@ -13,9 +15,15 @@ import com.google.gwt.user.client.ui.*;
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class ComaExjobb implements EntryPoint {
+
+	public Button diagramButton1 = new Button("diagramButton1");
+	public Button diagramButton2 = new Button("diagramButton2");
+	public Button diagramButton3 = new Button("diagramButton3");
+	public Button diagramButton4 = new Button("diagramButton4");
+	public Button diagramButton5 = new Button("diagramButton5");
+	
 	/**
-	 * The message displayed to the user when the server cannot be reached or
-	 * returns an error.
+	 * MARTIN COED GOES HEROE
 	 */
 	private static final String SERVER_ERROR = "An error occurred while "
 			+ "attempting to contact the server. Please check your network "
@@ -50,14 +58,6 @@ public class ComaExjobb implements EntryPoint {
 		// We can add style names to widgets
 		sendButton.addStyleName("sendButton");
 
-		/*
-		// Add the nameField and sendButton to the RootPanel
-		// Use RootPanel.get() to get the entire body element
-		RootPanel.get("nameFieldContainer").add(nameField);
-		RootPanel.get("sendButtonContainer").add(sendButton);
-		RootPanel.get("errorLabelContainer").add(errorLabel);
-		 */
-		
 		// Focus the cursor on the name field when the app loads
 		nameField.setFocus(true);
 		nameField.selectAll();
@@ -155,6 +155,29 @@ public class ComaExjobb implements EntryPoint {
 		nameField.addKeyUpHandler(handler);
 	}
 	
+	class MyHandler implements ClickHandler{
+
+		@Override
+		public void onClick(ClickEvent event) {
+
+			if(event.getSource().equals(diagramButton1)){
+
+			}
+			else if(event.getSource().equals(diagramButton2)){
+
+			}
+			else if(event.getSource().equals(diagramButton3)){
+
+			}
+			else if(event.getSource().equals(diagramButton4)){
+
+			}
+			else if(event.getSource().equals(diagramButton5)){
+
+			}
+		}
+	}
+	
 	private Panel topMenuButtons()
 	{
 		HorizontalPanel panel = new HorizontalPanel();
@@ -173,11 +196,15 @@ public class ComaExjobb implements EntryPoint {
 	//Buttons for diagrams in rightDiv
 	private Panel diagramButtons()
 	{
-		final Button diagramButton1 = new Button("diagramButton1");
-		final Button diagramButton2 = new Button("diagramButton2");
-		final Button diagramButton3 = new Button("diagramButton3");
-		final Button diagramButton4 = new Button("diagramButton4");
-		final Button diagramButton5 = new Button("diagramButton5");
+		diagramButton1 = new Button("diagramButton1");
+		diagramButton2 = new Button("diagramButton2");
+		diagramButton3 = new Button("diagramButton3");
+		diagramButton4 = new Button("diagramButton4");
+		diagramButton5 = new Button("diagramButton5");
+		
+		MyHandler m = new MyHandler();
+		diagramButton1.addClickHandler(m);
+		diagramButton2.addClickHandler(m);
 		
 		diagramButton1.getElement().setClassName("diagramButton");
 		diagramButton2.getElement().setClassName("diagramButton");
@@ -191,6 +218,7 @@ public class ComaExjobb implements EntryPoint {
 		flowPanel.add(diagramButton3);
 		flowPanel.add(diagramButton4);
 		flowPanel.add(diagramButton5);
+
 		return flowPanel;
 	}
 	
