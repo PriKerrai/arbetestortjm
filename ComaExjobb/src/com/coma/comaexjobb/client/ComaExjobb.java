@@ -11,9 +11,14 @@ import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.SplitLayoutPanel;
+import com.google.gwt.user.client.ui.StackPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -43,7 +48,9 @@ public class ComaExjobb implements EntryPoint {
 		final TextBox nameField = new TextBox();
 		nameField.setText("GWT User");
 		final Label errorLabel = new Label();
-
+		Button testButton = new Button("TESTTES");
+		RootPanel.get("oryxDiv").add(testButton);
+		RootPanel.get("rightDivBot").add(panel("title", "preview", 1));
 		final Button importButton = new Button("Import");
 		final Button exportButton = new Button("Export");
 
@@ -178,4 +185,25 @@ public class ComaExjobb implements EntryPoint {
 		sendButton.addClickHandler(handler);
 		nameField.addKeyUpHandler(handler);
 	}
+	
+	private Panel panel(String title, String preview, int id)
+	{
+		HorizontalPanel panel = new HorizontalPanel();
+		VerticalPanel vPanel = new VerticalPanel();
+		HorizontalPanel hPanel = new HorizontalPanel();
+		panel.add(new Label(preview));
+		panel.add(vPanel);
+		vPanel.add(new Label(title));
+		vPanel.add(hPanel);
+
+		hPanel.add(new Button("1"));
+		hPanel.add(new Button("2"));
+		hPanel.add(new Button("3"));
+		hPanel.add(new Button("4"));
+		hPanel.add(new Button("5"));
+		return panel;
+			
+
+	}
+	
 }

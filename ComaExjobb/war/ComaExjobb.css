@@ -41,7 +41,6 @@ height: 100%;
 	background-color: #999999;
 	overflow: hidden;
 	height: 100%;
-    
 }
 
 #oryxDiv
@@ -61,7 +60,7 @@ height: 100%;
     height:50px;
 	background-color: #378945;
 	overflow: hidden;
-	height: 20%;
+	height: 35%;
     
 }
 #rightDivBot
@@ -71,7 +70,7 @@ height: 100%;
     height:50px;
 	background-color: #354365;
 	overflow: hidden;
-	height: 80%;
+	height: 65%;
     
 }
 
