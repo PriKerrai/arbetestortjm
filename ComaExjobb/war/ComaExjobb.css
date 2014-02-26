@@ -35,8 +35,6 @@ height: 100%;
 }
 #rightDiv
 {
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
     min-width:3000;
     width: 20%;
     height:50px;
@@ -45,17 +43,38 @@ height: 100%;
 	height: 90%;
     
 }
+
 #oryxDiv
 {
 	float: left;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
     min-width:1000px;
     width: 80%;
     height:90%;
 	background-color: #FF4500;
     
 }
+
+#rightDivTop
+{
+    min-width:3000;
+    width: 100%;
+    height:50px;
+	background-color: #378945;
+	overflow: hidden;
+	height: 20%;
+    
+}
+#rightDivBot
+{
+    min-width:3000;
+    width: 100%;
+    height:50px;
+	background-color: #354365;
+	overflow: hidden;
+	height: 80%;
+    
+}
+
 
 .sendButton {
   display: block;
