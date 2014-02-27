@@ -1,9 +1,5 @@
 package com.coma.comaexjobb.client;
 
-import java.awt.ScrollPane;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import com.coma.comaexjobb.shared.FieldVerifier;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -21,6 +17,8 @@ public class ComaExjobb implements EntryPoint {
 	public Button diagramButton3 = new Button("diagramButton3");
 	public Button diagramButton4 = new Button("diagramButton4");
 	public Button diagramButton5 = new Button("diagramButton5");
+	LogIn logIn = new LogIn();
+	
 	
 	/**
 	 * MARTIN COED GOES HEROE
@@ -42,19 +40,20 @@ public class ComaExjobb implements EntryPoint {
 		final Button sendButton = new Button("Send");
 		final TextBox nameField = new TextBox();
 		nameField.setText("GWT User");
-		final Label errorLabel = new Label();
+		final Label errorLabel = new Label("hjehej");
 		
-		
+		//RootPanel.get("centerDiv").add(errorLabel);
 		RootPanel.get("rightDivBot").add(votingPanel("title", "preview", 1));
 		
 		RootPanel.get("topDiv").add(topMenuButtons());
 		RootPanel.get("rightDivTop").add(diagramButtons());
 		
 		Frame testOryxFrame = new Frame("http://cpi2.xepos.be:9999/oryx/oryx.xhtml");
+		
 		testOryxFrame.setHeight("100%");
 		testOryxFrame.setWidth("99%");
-		RootPanel.get("oryxDiv").add(testOryxFrame);
-
+		//RootPanel.get("oryxDiv").add(testOryxFrame);
+		RootPanel.get("oryxDiv").add(logIn.screen());
 		// We can add style names to widgets
 		sendButton.addStyleName("sendButton");
 
@@ -221,6 +220,7 @@ public class ComaExjobb implements EntryPoint {
 
 		return flowPanel;
 	}
+	
 	
 	private Panel votingPanel(String title, String preview, int id)
 	{
