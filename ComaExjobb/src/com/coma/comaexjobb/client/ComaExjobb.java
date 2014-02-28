@@ -6,6 +6,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
+import com.coma.comaexjobb.server.MySQLConnection;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -18,7 +19,7 @@ public class ComaExjobb implements EntryPoint {
 	public Button diagramButton4 = new Button("diagramButton4");
 	public Button diagramButton5 = new Button("diagramButton5");
 	LogIn logIn = new LogIn();
-	
+
 	
 	/**
 	 * MARTIN COED GOES HEROE
@@ -37,6 +38,13 @@ public class ComaExjobb implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
+		
+
+		System.out.println("onmoduleload");
+		MySQLConnection m = new MySQLConnection();
+		//m.authenticateUser("", "");
+		m.test();
+		
 		final Button sendButton = new Button("Send");
 		final TextBox nameField = new TextBox();
 		nameField.setText("GWT User");
@@ -48,12 +56,12 @@ public class ComaExjobb implements EntryPoint {
 		RootPanel.get("topDiv").add(topMenuButtons());
 		RootPanel.get("rightDivTop").add(diagramButtons());
 		
-		Frame testOryxFrame = new Frame("http://cpi2.xepos.be:9999/oryx/oryx.xhtml");
+		Frame testOryxFrame = new Frame("http://localhost/oryx/oryx.xhtml");
 		
 		testOryxFrame.setHeight("100%");
 		testOryxFrame.setWidth("99%");
-		//RootPanel.get("oryxDiv").add(testOryxFrame);
-		RootPanel.get("oryxDiv").add(logIn.screen());
+		RootPanel.get("oryxDiv").add(testOryxFrame);
+		//RootPanel.get("oryxDiv").add(logIn.screen());
 		// We can add style names to widgets
 		sendButton.addStyleName("sendButton");
 
@@ -147,7 +155,6 @@ public class ComaExjobb implements EntryPoint {
 						});
 			}
 		}
-
 		// Add a handler to send the name to the server
 		MyHandler handler = new MyHandler();
 		sendButton.addClickHandler(handler);
@@ -160,10 +167,10 @@ public class ComaExjobb implements EntryPoint {
 		public void onClick(ClickEvent event) {
 
 			if(event.getSource().equals(diagramButton1)){
-
+				System.out.println("1 är denna");
 			}
 			else if(event.getSource().equals(diagramButton2)){
-
+				System.out.println("2 är denna");
 			}
 			else if(event.getSource().equals(diagramButton3)){
 
@@ -204,6 +211,9 @@ public class ComaExjobb implements EntryPoint {
 		MyHandler m = new MyHandler();
 		diagramButton1.addClickHandler(m);
 		diagramButton2.addClickHandler(m);
+		diagramButton3.addClickHandler(m);
+		diagramButton4.addClickHandler(m);
+		diagramButton5.addClickHandler(m);
 		
 		diagramButton1.getElement().setClassName("diagramButton");
 		diagramButton2.getElement().setClassName("diagramButton");
