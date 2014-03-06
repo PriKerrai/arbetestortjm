@@ -1,5 +1,7 @@
 package com.coma.comaexjobb.client;
 
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Panel;
@@ -16,6 +18,10 @@ public class LogIn {
 		Label emailLabel = new Label("Email:");
 		Label passwordLabel = new Label("Password:");
 		Button logInButton = new Button("Log In");
+		
+		MyHandler handler = new MyHandler();
+		logInButton.addClickHandler(handler);	
+		
 		logInButton.getElement().setClassName("diagramButton");
 		
 		vPanel.add(emailLabel);
@@ -24,9 +30,17 @@ public class LogIn {
 		vPanel.add(passwordTextBox);
 		vPanel.add(logInButton);
 		
-		
 		return vPanel;
 	}
 	
 	
+	class MyHandler implements ClickHandler{
+
+		@Override
+		public void onClick(ClickEvent event) {
+
+
+	}
+	
+	}
 }
